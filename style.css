@@ -1,4 +1,10 @@
 /* hero background image */
+.header__logo-sub {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
 .bgimage {
     height:100vh;
     background: url('bg_banner.jpg');
