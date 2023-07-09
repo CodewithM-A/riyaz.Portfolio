@@ -288,7 +288,7 @@
 
             <div class="col-lg-6">
                 <!-- form fields -->
-                <form  name="contact" netlify>
+                <form  name="submit-to-google-sheet" netlify>
                     <input type="text" class="form-control form-control-lg" placeholder="Name">
                     <input type="email" class="form-control mt-3" placeholder="Email">
                     <input type="text" class="form-control mt-3" placeholder="Subject">
@@ -354,5 +354,17 @@
 
 
     <script src="script/script.js"></script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwVRc_7hNCBPYF1KeXQhymefZa9WNq2J7RjZtuwBr_laNNcnWUAnl849skfQL9c_9s/exec'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+    
 </body>
 </html>
